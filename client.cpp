@@ -9,7 +9,7 @@ int main(void) {
 	std::forward_list<struct file_details> list = create_ll();
 	
 	// Adding files and attribute data to the ll
-	for(int i = 5; i >= 1; i--){
+	for(int i = 1; i <= 5; i++){
 		
 		std::string name = "files/" + std::to_string(i) + ".rtf";
 		
@@ -20,8 +20,6 @@ int main(void) {
 		struct file_details new_data;
 		new_data.filename = filename;
 		new_data.file_attr = data_attr;
-		
-		//std::cout << data.first << " " << data.second.st_size << std::endl;
 		
 		insert_data_ll(list, new_data);
 		
@@ -35,14 +33,14 @@ int main(void) {
 	}
 	std::cout << std::endl;
 	
-	// Sorting according to size
-	sort_size(list);
+	// Sorting according to name
+	sort_name(list);
 	for(auto j = list.begin(); j != list.end(); j++)
 			std::cout << j->filename << " " << j->file_attr.st_size << " " << j->file_attr.st_ino  << std::endl;
 	std::cout << std::endl;
 	
-	// Sorting according to name
-	sort_name(list);
+	// Sorting according to size
+	sort_size(list);
 	for(auto j = list.begin(); j != list.end(); j++)
 			std::cout << j->filename << " " << j->file_attr.st_size << " " << j->file_attr.st_ino  << std::endl;
 	std::cout << std::endl;
@@ -50,7 +48,7 @@ int main(void) {
 	// Sorting according to access date
 	sort_access_date(list);
 	for(auto j = list.begin(); j != list.end(); j++)
-			std::cout << j->filename << " " << j->file_attr.st_size << " " << j->file_attr.st_ino  << std::endl;
+			std::cout << j->filename << " " << j->file_attr.st_size << " " << j->file_attr.st_atime  << std::endl;
 	std::cout << std::endl;
 	
 	return 0;

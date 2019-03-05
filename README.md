@@ -11,4 +11,5 @@ ar cr libfile.a file_attributes.o mime_type.o linked_list.o
 ```
 ```
 g++ -o client client.cpp -L. -lfile
+./client
 ```
